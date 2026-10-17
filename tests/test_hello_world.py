@@ -2,7 +2,7 @@
 
 import pytest
 
-from samples.hello_world.app import hello_world
+from web_scraping.hello_world.app import hello_world
 
 
 @pytest.mark.unit
