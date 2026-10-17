@@ -31,6 +31,8 @@ dev = [
     "ipython",
     "isort",
     "mypy",
+    "playwright",
+    "pandas",
     "pytest"
 ]
 
