@@ -45,7 +45,3 @@ def scrape():
         browser.close()
 
     return data
-
-
-if __name__ == "__main__":
-    scrape()
