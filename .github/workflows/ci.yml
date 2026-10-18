@@ -22,6 +22,7 @@ jobs:
     - name: Install Dependencies
       run: |
         scripts/install.sh
+        scripts/playwright.sh
 
     - name: Lint with flake8, black, isort
       run: |
