@@ -3,4 +3,4 @@
 # Install Playwright.
 
 echo "Installing Playwright..."
-python -m playwright install --with-deps
+uv run python -m playwright install --with-deps
