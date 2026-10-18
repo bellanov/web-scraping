@@ -4,3 +4,4 @@
 
 echo "Installing Dependencies..."
 uv sync --all-extras
+playwright install
