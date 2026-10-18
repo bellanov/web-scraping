@@ -1,4 +1,4 @@
-"""Web Scraper."""
+"""Web Scraping Template."""
 
 from playwright.sync_api import sync_playwright
 
@@ -45,7 +45,3 @@ def scrape():
         browser.close()
 
     return data
-
-
-if __name__ == "__main__":
-    scrape()
