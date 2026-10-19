@@ -25,8 +25,6 @@ First, a local project environment needs to be created, then the project's modul
 
 Execute the tests to validate your installation.
 
-### Linux
-
 ```sh
 # Execute Unit Tests
 scripts/test.sh
