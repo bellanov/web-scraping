@@ -4,7 +4,7 @@ Web scraping template.
 
 ## Script Execution
 
-First, a local project environment needs to be created, then the project's modules will be installed into locally into a virtual environment.
+First, a local project environment needs to be created, then the project's dependencies need to be be installed.
 
 1. Clone the repository.
 
