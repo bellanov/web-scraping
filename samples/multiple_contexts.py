@@ -56,6 +56,3 @@ def scrape():
         browser.close()
 
     return data
-
-
-scrape()

@@ -2,7 +2,7 @@
 
 import pytest
 
-from web_scraping.samples import pagination
+from samples import pagination
 
 
 @pytest.mark.unit

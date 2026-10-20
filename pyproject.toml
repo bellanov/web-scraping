@@ -37,7 +37,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["web_scraping/"]
+packages = ["samples/"]
 
 [project.urls]
 Homepage = "https://github.com/bellanov/python-samples"
