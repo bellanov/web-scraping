@@ -14,7 +14,7 @@ def scrape():
         page.goto("https://sandbox.oxylabs.io/products")
 
         # Wait for product cards to load
-        page.wait_for_selector(".product-card")  
+        page.wait_for_selector(".product-card")
         products = page.query_selector_all(".product-card")
 
         print("=" * 50)

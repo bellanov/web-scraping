@@ -14,7 +14,7 @@ def scrape():
         page.goto("https://sandbox.oxylabs.io/products")
 
         # Wait for product cards to load
-        page.locator(".product-card").first.wait_for(state="visible")  
+        page.locator(".product-card").first.wait_for(state="visible")
 
         pagination = page.locator(".pagination")
 
@@ -32,7 +32,7 @@ def scrape():
 
                 products = page.locator(".product-card").all()
                 print(f"Total products found on the next page: {len(products)}")
-        
+
         browser.close()
 
     return data
