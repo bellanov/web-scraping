@@ -2,7 +2,7 @@
 
 import pytest
 
-from web_scraping.samples import template
+from samples import template
 
 
 @pytest.mark.unit
