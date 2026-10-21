@@ -12,37 +12,61 @@ def scrape():
     data = {}
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-
-        context1 = browser.new_context()
-        context2 = browser.new_context()
-
-        page1 = context1.new_page()
-        page2 = context2.new_page()
-
-        page1.goto("https://sandbox.oxylabs.io/products")
-        page2.goto("https://sandbox.oxylabs.io/products")
-
-        context1.add_cookies(
-            [
-                {
-                    "name": "example_cookie",
-                    "value": "value1",
-                    "domain": "sandbox.oxylabs.io",
-                    "path": "/",
-                }
-            ]
+        browser = p.chromium.launch(
+            headless=False,
+            args=["--disable-blink-features=AutomationControlled"],
+            # Enable proxy settings if needed for large-scale scraping or to bypass geo-restrictions.
+            # proxy={"server": "http://your-proxy-server:port", "username": "your-username", "password": "your-password"}
         )
 
-        cookies1 = context1.cookies()
-        cookies2 = context2.cookies()
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US",
+            timezone_id="America/New_York",
+            geolocation={"latitude": 40.7128, "longitude": -74.0060},
+            permissions=["geolocation"]
+        )
 
-        print(f"Cookies in context 1: {len(cookies1)}")
-        print(f"Cookies in context 2: {len(cookies2)}")
+        page = context.new_page()
 
-        context1.close()
-        context2.close()
+        page.set_extra_http_headers({
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Connection": "keep-alive",
+            "Upgrade-Insecure-Requests": "1",
+            "Set-Fetch-Dest": "document",
+            "Set-Fetch-Mode": "navigate",
+            "Set-Fetch-Site": "none",
+            "Set-Fetch-User": "?1",
+            "Cache-Control": "max-age=0",
+        })
 
+        page.goto("https://sandbox.oxylabs.io/products")
+
+        # Wait for product cards to load
+        page.wait_for_selector(".product-card")
+        products = page.query_selector_all(".product-card")
+
+        print("=" * 50)
+        print("Extracted Products")
+        print("=" * 50)
+
+        for product in products:
+            name_element = product.query_selector(".title")
+            name = name_element.inner_text() if name_element else "-"
+
+            price_element = product.query_selector(".price-wrapper")
+            price = price_element.inner_text() if price_element else "-"
+
+            print(f"Product: {name}, Price: {price}")
+            print("-" * 80)
+
+            data[name] = {"price": price}
+        
+
+        context.close()
         browser.close()
 
     return data
