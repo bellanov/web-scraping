@@ -1,6 +1,6 @@
 # web-scraping
 
-Web scraping templates and examples.
+Web scraping template with Playwright. Sample code is provided in the `samples` directory.
 
 | Sample | Description |
 |---|---|
