@@ -13,7 +13,7 @@ def scrape():
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False,
+            headless=True,
             args=["--disable-blink-features=AutomationControlled"],
             # Enable proxy settings if needed for large-scale scraping or to bypass geo-restrictions.
             # proxy={"server": "http://your-proxy-server:port", "username": "your-username", "password": "your-password"}
