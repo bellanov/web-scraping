@@ -1,7 +1,5 @@
 """Unit tests for hello_world sample."""
 
-from unittest.mock import Mock
-
 import pytest
 
 from samples import request_interception
