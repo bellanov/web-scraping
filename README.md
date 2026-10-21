@@ -1,6 +1,6 @@
 # web-scraping
 
-Web scraping template.
+Web scraping samples.
 
 ## Script Execution
 
