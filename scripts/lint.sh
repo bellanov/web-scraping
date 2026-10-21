@@ -6,12 +6,12 @@
 echo "Linting code base..."
 
 # stop the build if there are Python syntax errors or undefined names
-uv run flake8 web_scraping --count --select=E9,F63,F7,F82 --show-source --statistics
+uv run flake8 samples --count --select=E9,F63,F7,F82 --show-source --statistics
 # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-uv run flake8 web_scraping --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+uv run flake8 samples --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 # Check for code formatting issues
-uv run black --check web_scraping
-uv run isort --check web_scraping
+uv run black --check samples
+uv run isort --check samples
 
 echo "Linting tests..."
 
