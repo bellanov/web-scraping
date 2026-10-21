@@ -1,6 +1,6 @@
 # web-scraping
 
-Web scraping samples.
+Web scraping templates and examples.
 
 | Sample | Description |
 |---|---|
