@@ -25,23 +25,25 @@ def scrape():
             locale="en-US",
             timezone_id="America/New_York",
             geolocation={"latitude": 40.7128, "longitude": -74.0060},
-            permissions=["geolocation"]
+            permissions=["geolocation"],
         )
 
         page = context.new_page()
 
-        page.set_extra_http_headers({
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Connection": "keep-alive",
-            "Upgrade-Insecure-Requests": "1",
-            "Set-Fetch-Dest": "document",
-            "Set-Fetch-Mode": "navigate",
-            "Set-Fetch-Site": "none",
-            "Set-Fetch-User": "?1",
-            "Cache-Control": "max-age=0",
-        })
+        page.set_extra_http_headers(
+            {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Connection": "keep-alive",
+                "Upgrade-Insecure-Requests": "1",
+                "Set-Fetch-Dest": "document",
+                "Set-Fetch-Mode": "navigate",
+                "Set-Fetch-Site": "none",
+                "Set-Fetch-User": "?1",
+                "Cache-Control": "max-age=0",
+            }
+        )
 
         page.goto("https://sandbox.oxylabs.io/products")
 
@@ -64,7 +66,6 @@ def scrape():
             print("-" * 80)
 
             data[name] = {"price": price}
-        
 
         context.close()
         browser.close()
