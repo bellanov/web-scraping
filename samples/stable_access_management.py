@@ -7,15 +7,6 @@ enables you to bypass blocking mechanisms and maintain consistent access to web 
 from playwright.sync_api import sync_playwright
 
 
-def block_resources(route, request):
-    """Block unnecessary resources like images and stylesheets."""
-
-    if request.resource_type in ["image", "stylesheet", "font", "media"]:
-        route.abort()
-    else:
-        route.continue_()
-
-
 def scrape():
     """Template function for web scraping."""
     data = {}
